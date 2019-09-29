@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>9.tableChange</title>
+    <script src="../lib/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+       $(function(){
+            // 查找所有需要操作的元素
+            //var $contents = $('#container>div');
+            //在按钮上加入点击监听
+            // $('#tab>li').click(function(){
+            //     首先将所有需要操作的元素隐藏
+            //     $contents.css('display','none');
+            //     获取当前点击按钮的下标
+            //     var index = $(this).index();
+            //     将点击按钮对应操作元素的属性修改为显示
+            //     $contents[index].style.display = "block";
+            // })
+
+            // 查找所有需要操作的元素
+            var $contents = $('#container>div');
+            // 将默认现实元素的下标复制给一个变量
+            var curryIndex = 0;
+            //在按钮上加入点击监听
+            $('#tab>li').click(function(){
+                //首先将当前显示的元素隐藏
+                $contents[curryIndex].style.display = "none";
+                //获取当前点击按钮的下标
+                var index = $(this).index();
+                //将点击按钮对应操作元素的属性修改为显示
+                $contents[index].style.display = "block";
+                //更新curryIndex为当前显示元素的下标
+                curryIndex = index;
+            })
+       })
+       
+    </Script>
+    <style type="text/css">
+        ul {
+            padding-left: 0%;
+            margin-bottom: 0%;
+            width: 240px;
+            height: 35px;
+        }
+        
+        li {
+            list-style: none;
+            width: 80px;
+            height: 35px;
+            line-height: 35px;
+            float: left;
+            text-align: center;
+            vertical-align:middle;
+
+        }
+
+        #tab1,#container1{
+            background-color: red;
+            color:white;
+            font:bold;
+        }
+
+        #tab2,#container2{
+            background-color: blue;
+            color:white;
+            font:bold;
+        }
+
+        #tab3,#container3{
+            background-color: green;
+            color:white;
+            font:bold;
+        }
+
+         #container {
+            clear: left;
+            width: 300px;
+            height: 100px;
+        }
+
+        div div{
+            width: 300px;
+            height: 100px;
+            padding-top: 15px;
+            padding-left: 10px;
+        }
+    </style>
+    
+</head>
+<body>
+    <h2>多table点击切换</h2>
+    <ul id="tab">
+        <li id="tab1" value="1">10元套餐</li>
+        <li id="tab2" value="2">20元套餐</li>
+        <li id="tab3" value="3">30元套餐</li>
+    </ul>
+    <div id="container">
+        <div id="container1"  style="display:block">
+            10元套餐详情:<br />
+            每月100分钟通话时间,1G流量.
+        </div>
+        <div id="container2" style="display:none">
+            20元套餐详情:<br />
+            每月2100分钟通话时间,2G流量.
+        </div>
+        <div id="container3" style="display:none">
+            30元套餐详情:<br />
+            每月300分钟通话时间,3G流量.
+        </div>
+    </div>
+</body>
+</html>

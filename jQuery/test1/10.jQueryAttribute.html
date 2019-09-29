@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>10.jQueryAttribute</title>
+    <script src="../lib/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function(){
+            //1.读取第一个div的title属性
+                //console.log($('div:first').attr('title'));
+                
+            //2.给所有的div设置name属性(value为guigu)
+                //$('div').attr('name','guigu');
+
+            //3.移除所有div的title属性
+                //$('div').removeAttr('title');
+
+            //4.给所有div设置class="guiguClass"
+                //$('div').attr('class','guigu');
+
+            //5.给所有的div添加class="abc"
+                //$('div').addClass('abc');
+
+            //6.移除所有div的guiguClass的class
+                //$('div').removeClass('box');
+
+            //7.得到最后一个li的标签体文本
+                //console.log($('li:last').html());
+
+            //8.设置第一个li的标签体文本为"<h1>mmmmmmmm</h1>"
+                //$('li:first').html('<h1>mmmmmmmm</h1>');
+
+            //9.得到输入框中的value值
+                //console.log($(':text').val());
+
+            //10.将输入框中的值设为guigu
+                //$(':text').val('guigu');
+
+            //11.点击全选按钮实现全选
+                // var $checkboxes = $(':checkbox')
+                // $('button:first').click(function(){
+                //     $checkboxes.prop('checked',true);
+                // })
+
+            //12.点击全不选按钮实现全不选
+                // $('button:last').click(function(){
+                //     $checkboxes.prop('checked',false);
+                // })
+        })
+    </Script>
+    <css type="text/css">
+    
+    </css>
+
+</head>
+<body>
+    <div id="div1" class="box" title="one">class为box的div1</div>
+    <div id="div2" class="box" title="two">class为box的div2</div>
+    <div id="div3">div3</div>
+    <span class="box">class为box的span</span>
+    <br />
+    <ul>
+        <li>AAAAA</li>
+        <li title="hello" class="box2">BBBBB</li>
+        <li class="box">CCCCC</li>
+        <li title="hello">DDDDD</li>
+        <li title="two"><span>BBBBB</span></li>
+    </ul>
+    <input type="text" name="username" value="guiguClass"/>
+    <br />
+    <input type="checkbox">
+    <input type="checkbox">
+    <br />
+    <button>选中</button>
+    <button>不选中</button>
+
+</body>
+</html>
