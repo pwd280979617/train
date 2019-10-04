@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQueryScroll</title>
+    <script src="../lib/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function(){
+            //1.得到div或页面的滚动条的坐标
+                // $('#btn1').click(function(){
+                //     console.log($('div').scrollTop());
+                //     console.log($('html').scrollTop()+$('body').scrollTop());
+                // })
+            //2.设置div或页面的滚动条的坐标
+                // $('#btn2').click(function(){
+                //     $('div').scrollTop(300);
+                //     $('html,body').scrollTop(300);
+                // })
+
+        })
+        
+
+    </script>
+
+</head>
+<body style="height: 1200px;overflow: auto">
+    <div style="border: 1px solid black;width: 100px;height: 150px; overflow: auto">
+        This is some text!This is some text!This is some text!This is some text!
+        This is some text!This is some text!This is some text!This is some text!
+        This is some text!This is some text!This is some text!This is some text!
+        This is some text!This is some text!This is some text!This is some text!
+        This is some text!This is some text!This is some text!This is some text!
+        This is some text!This is some text!This is some text!This is some text!
+    </div>
+    <br />
+    <br />
+    <br />
+    <button id="btn1">点击获取scrollTop</button>
+    <button id="btn2">点击设置scrollTop</button>
+</body>
+</html>
