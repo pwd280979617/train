@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>backTop</title>
+    <script src="../lib/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function(){
+            //1.瞬间移动
+            // $('#backTop').click(function(){
+            //     $('html,body').scrollTop(0);
+            // })
+
+            //2.缓慢滚动
+            $('#backTop').click(function(){
+            var distance = $('html').scrollTop()+$('body').scrollTop();
+            var time = 1000;
+            var intervalTime = 50;
+            var intervalDistance = distance/(time/intervalTime)
+            var intervalTop = setInterval(function(){
+                distance = distance - intervalDistance;
+                if(distance <= 0){
+                    distance = 0;
+                    clearInterval(intervalTop);
+                }
+                $('html,body').scrollTop(distance);
+                
+            },intervalTime);
+            })
+        })
+
+    </script>
+    <style type="text/css">
+        #backTop {
+            width: 30px;
+            height: 40px;
+            font: 14px/20px arial;
+            text-align: center;
+            background-color: blue;
+            position: fixed;
+            cursor: pointer;
+            color:white;
+            left:1200px;
+            top: 500px;
+        }
+    </style>
+</head>
+<body style="height: 1200px;overflow: auto">
+    <div id="backTop">
+            返回<br />
+            顶部
+    </div>
+    
+</body>
+</html>
