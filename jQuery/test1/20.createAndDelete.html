@@ -6,16 +6,32 @@
     <script src="../lib/jquery.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function(){
-            var $deletes = $('td>a')
-            $deletes.css('background','blue')
-            $deletes.click(function(){
-                index = $deletes.parent().parent().index();
-                var $trs = $('#tbody>tr')[index];
-                var name =  $($trs).children().first().html()
-                //$trs.empty();
+             //添加表格中记录的删除功能
+            $('td>a').click(function(){
+                var $tr = $(this).parent().parent();
+                var name = $tr.children().first().html();
                 if(confirm("确定删除"+name+"吗?")){
-                    $($trs).empty();
+                    $($tr).empty(); 
                 } 
+            })
+            //添加新员工功能
+            
+            $('#submit').click(function(){
+                console.log(userNameValue)
+                var userNameValue = $('#useName').val()
+                var userEmailValue = $('#email').val()
+                var userSalaryValue = $('#useSalary').val()
+                $('#tbody').append("<tr><td>"+userNameValue+"</td><td>"+userEmailValue+"</td><td>"+userSalaryValue+"</td><td><a href='javascript: ;'>Delete</a></td></tr>")
+                $('tr:last>td>a').click(function(){
+                    var $tr = $(this).parent().parent();
+                    var name = $tr.children().first().html();
+                    if(confirm("确定删除"+name+"吗?")){
+                        $($tr).empty(); 
+                    } 
+                })
+                $('#useName').val('');
+                $('#email').val('');
+                $('#useSalary').val('');
             })
         })
     </script>
