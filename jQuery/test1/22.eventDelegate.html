@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>22.eventDelegate</title>
+    <script src="../lib/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function(){
+            //1.btn1绑定点击增加li功能
+            $('#btn1').click(function(){
+                $('#ul1').append('<li>abc</li>');
+            })
+            
+            //2.通过事件委派为所有li绑定点击变色功能
+            $('ul').delegate('li','click',function(){
+                this.style.background = 'red';
+            })
+
+            //3.点击btn2解除ul的事件委派
+            $('#btn2').click(function(){
+                $('ul').undelegate('click');
+            })
+           
+        })
+    </script>
+</head>
+<body>
+    <ul id="ul1">
+        <li>11111</li>
+        <li>22222</li>
+        <li>33333</li>
+        <li>44444</li>
+    </ul>
+    <li>aaaaa</li>
+    <br />
+    <button id="btn1">ul内新增li</button>
+    <button id="btn2">删除ul事件委托监听</button>
+</body>
+</html>
