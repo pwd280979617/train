@@ -7,6 +7,7 @@ $(function(){
     var pageTime = 400 //总的翻页时间
     var itemTime = 30 //单位翻页时间
     var offsetLeft = 600 //图片宽度
+    var imgNumber = $('#div2>img').length
     
 
     //1.点击向左向右按钮平滑切换图片
@@ -35,6 +36,11 @@ $(function(){
             if(next ? currentLeft <= targetLeft : currentLeft >= targetLeft){
                 clearInterval(timer)
                 currentLeft = targetLeft
+                if(currentLeft === -(imgNumber-1)*offsetLeft){
+                    currentLeft = -offsetLeft
+                } else if (currentLeft === 0){
+                    currentLeft = -(imgNumber-2)*offsetLeft
+                }
             }
             $div2.css('left',currentLeft)
         },itemTime)
