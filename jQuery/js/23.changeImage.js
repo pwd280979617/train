@@ -25,7 +25,9 @@ $(function(){
     $btn2.click(function(){
         pageNext(true);
     })
-    
+
+
+    //2.无线循环切换,第一页的上一页为最后一页,最后一页的下一页为第一页
     function pageNext (next){
         var currentLeft  = $div2.position().left //获取当前偏移量
         var offset =  next ? -offsetLeft : offsetLeft //判断向左向右
@@ -46,4 +48,18 @@ $(function(){
         },itemTime)
     }
     
+    //3.每3秒自动切换到下一页
+    var timer1 = setInterval(function(){
+        pageNext(true);
+    },3000)
+
+    //4.当鼠标进入图片区域是,图片切换自动停止,当鼠标离开是开始切换
+    $div1.hover(function(){
+        clearInterval(timer1);
+    },function(){
+        timer1 = setInterval(function(){
+            pageNext(true);
+        },3000)
+    })
+
 })
