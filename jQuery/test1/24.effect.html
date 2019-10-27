@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>24.effect</title>
+    <script src="../lib/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function(){
+            var $div = $('.div1')
+            //1.点击btn1慢慢淡出
+            $('#btn1').click(function(){
+                $div.fadeOut(1000)
+            })
+
+            //2.点击btn2慢慢淡入
+            $('#btn2').click(function(){
+                $div.fadeIn(1000)
+            })
+
+             //3.点击btn3淡入淡出切换
+             $('#btn3').click(function(){
+                $div.fadeToggle(1000)
+            })
+
+             //4.点击btn4收缩
+             $('#btn4').click(function(){
+                $div.slideUp(1000)
+            })
+
+            //5.点击btn5展开
+            $('#btn5').click(function(){
+                $div.slideDown(1000)
+            })
+
+             //6.点击btn6收缩展开切换
+             $('#btn6').click(function(){
+                $div.slideToggle(1000)
+            })
+
+            //7.点击btn7收缩
+            $('#btn7').click(function(){
+                $div.hide(1000)
+            })
+
+            //8.点击btn8展开
+            $('#btn8').click(function(){
+                $div.show(1000)
+            })
+
+             //9.点击btn9收缩展开切换
+             $('#btn9').click(function(){
+                $div.toggle(1000)
+            })
+
+        })
+       
+    </script>
+    <style type="text/css">
+        .div1{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: 100px;
+            left: 10px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">慢慢淡出</button>
+    <button id="btn2">慢慢淡入</button>
+    <button id="btn3">淡出/淡入切换</button><br />
+    <button id="btn4">收缩</button>
+    <button id="btn5">展开</button>
+    <button id="btn6">收缩/展开切换</button><br />
+    <button id="btn7">显示</button>
+    <button id="btn8">隐藏</button>
+    <button id="btn9">显示/隐藏切换</button><br />
+    <div class="div1"></div>
+</body>
+</html>
