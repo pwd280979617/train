@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container"></div>
+    <script src="../lib/react.development.js"></script>
+    <script src="../lib/react-dom.development.js"></script>
+    <script src="../lib/babel.js"></script>
+    <script type="text/babel">
+        //1.在JSX中嵌入表达式,并渲染出结果
+        //嵌入常量
+        // const name = 'Jack'
+        // const vDOM = <h1>Hello {name}</h1>
+        // ReactDOM.render(
+        //     vDOM,
+        //     document.getElementById('container')
+        // );
+        //嵌入函数
+        // function formatName(user){
+        //     return user.firstName+" "+user.lastName
+        // }
+        
+        // const user = {
+        //     firstName: "Harry",
+        //     lastName: "Potter"
+        // }
+
+        // const element = <h1>Hello,{formatName(user)}</h1>
+
+        // ReactDOM.render(
+        //     element,
+        //     document.getElementById('container')
+        // )
+       
+        //2.在 if 语句代码块中使用 JSX，将 JSX 赋值给变量，把 JSX 当作参数传入，以及从函数中返回 JSX
+        // function formatName(user){
+        //     return user.firstName+" "+user.lastName
+        // }
+
+        // // const user = {
+        // //     firstName: "Harry",
+        // //     lastName: "Potter"
+        // // }
+
+        // const user = 0
+
+        // function getMeeting(user){
+        //     if(user){
+        //         return <h1>Hello,{formatName(user)}</h1>
+        //     }
+        //         return <h1>Hello,stranger</h1>
+        // }
+
+        // ReactDOM.render(
+        //     getMeeting(user),
+        //     document.getElementById('container')
+        // )
+    </script>
+</body>
+</html>
