@@ -21,19 +21,22 @@ React技术栈
 ### 1.3 安装React开发者工具
 为了便于后期调试需要安装再chrome中安装一个React开发者工具.
 
-
-## 2.React JSX
+## 2.React核心概念
 
 ### 2.1 虚拟DOM
-1.React提供了一些API来创建一种特别的一般JS对象
-````javascript
-var vDOM = React.createElement('h1',{id:'myTitle'},'hello')
-````
-上面创建的就是一个简单的虚拟DOM对象   
-2.虚拟DOM对象最终会被React转换成真实DOM对象   
-3.我们在编码时只需要操作React的虚拟DOM数据,React会自动转换成真实DOM并更新页面
+**DOM的本质**:浏览器中的概念,用JS对象表示页面中的元素,并提供了操作DOM的API  
+**React中的虚拟对象**:框架中的概念,用JS对象来模拟页面上的元素和元素嵌套  
+**虚拟DOM的目的**:为了实现页面中DOM元素的高效更新  
 
-### 2.2 JSX
+### 2.2 Diff算法
+tree diff:新旧两颗DOM树逐层对比的过程就是tree diff  
+component diff:在进行tree diff的时候,每一层中组件级别的对比就是component diff  
+element diff:在进行component diff的时候,两个组件相同,则进行元素级别的对比,就叫element diff
+
+
+## 3.React JSX
+
+### 3.1 JSX
 1.JSX是一个javascript的语法扩展,具有javascript的全部功能,并且可以通过JSX生成React元素   
 2.可以将表达式包裹在大括号中,在JSX中使用它
 ````javascript
@@ -75,9 +78,9 @@ const element = <img src={user.avatarUrl}></img>
 	)
 ````
 
-## 3.元素渲染
+## 4.元素渲染
 
-### 3.1 将一个元素渲染成DOM
+### 4.1 将一个元素渲染成DOM
 元素是React应用的最小单元,React DOM通过ReactDOM.render()更新DOM来与React元素保持一致.
 ### 3.2 更新已渲染的元素
 React元素是不可变对象,创建后无法修改其子元素和属性.  
