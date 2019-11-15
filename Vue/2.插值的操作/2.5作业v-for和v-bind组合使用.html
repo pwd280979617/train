@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        .color {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!--需求:将点击的项目文字变成红色-->
+    <div id="app">
+        <ul>
+            <li v-for='(m,index) in movies' v-on:click='clickColor(index)' v-bind:class='{color:currIndex === index}'>{{m}}</li>
+        </ul>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script type="text/javascript">
+        const app = new Vue({
+            el: "#app",
+            data: {
+                movies: ['西游记','水浒传','三国志','红楼梦'],
+                currIndex: 0
+            },
+            methods: {
+                clickColor: function(index){
+                   this.currIndex = index
+                }
+
+            },
+        })
+    </script>
+</body>
+</html>

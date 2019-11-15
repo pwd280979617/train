@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        .active {
+            color: red;
+        }
+
+        .background {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1 :class='{active:isActive,background:isBackground}'>{{message}}</h1>
+
+        <h1 :class='getClass()'>{{message}}</h1>
+
+        <button v-on:click='change'>按钮</button>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script type="text/javascript">
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "Welcome",
+                isActive:true,
+                isBackground:true
+            },
+            methods: {
+                change:function(){
+                    this.isActive = !this.isActive
+                },
+                getClass: function(){
+                    return {active:this.isActive,background:this.isBackground}
+                }
+            },
+        })
+    </script>
+</body>
+</html>

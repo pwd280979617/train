@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <img v-bind:src="imgURL" />
+        <!--使用v-bind的语法糖,将v-bind: 简写为":"-->
+        <a :href="aHref">baidu</a>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script type="text/javascript">
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "Welcome",
+                imgURL: "https://cn.vuejs.org/images/logo.png",
+                aHref: "http://www.baidu.com"
+            }
+        })
+    </script>
+</body>
+</html>
