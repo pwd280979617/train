@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{getFullName()}}</h1>
+        <h1>{{getFullName()}}</h1>
+        <h1>{{getFullName()}}</h1>
+
+        <h1>{{fullName}}</h1>
+        <h1>{{fullName}}</h1>
+        <h1>{{fullName}}</h1>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script type="text/javascript">
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "Welcome",
+                firstName: "Tom",
+                lastName: "cat",
+            },
+            //在执行过程中我们会发现methods会将内部的函数计算多次
+            methods: {
+                getFullName: function(){
+                    console.log(getFullName)
+                    return this.firstName + ' ' + this.lastName;
+                }
+            },
+            //在执行过程中我们会发现computed只会将内部的函数计算一次,然后将结果保存在缓存中,知道内部的数据发生变化
+            computed: {
+                fullName: function(){
+                    console.log(fullName);
+                    return this.firstName + ' ' + this.lastName;
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>

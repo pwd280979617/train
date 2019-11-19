@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>总计数量:{{counter}}</h1>
+        <button v-on:click="add">+</button>
+        <!--@是v-on的简写语法糖-->
+        <button @click=sub()>-</button>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script type="text/javascript">
+        const app = new Vue({
+            el: "#app",
+            data: {
+                counter: 0,
+            },
+            methods: {
+                add(){
+                    console.log("++++")
+                    return this.counter++
+                },
+                sub(){
+                    return this.counter--
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{fullName}}</h1>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script type="text/javascript">
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "Welcome",
+                firstName: "Tom",
+                lastName: "Cat"
+            },
+            // computed常规简要写法
+            //computed: {
+            //     fullName: function(){
+            //         return this.firstName + " " + this.lastName;
+            //     }
+            // },
+            //computed完整写法中有set和get两个对象,这就是我们能够直接调用fullName而不用再后面上上括号的原因
+            //一般我们只会用到get,set很少使用,所以一般都使用computed得常规简要写法
+            computed: {
+                fullName: {
+                    set: function(){
+
+                    },
+                    get: function(){
+                        return this.firstName + " " +this.lastName;
+                    }
+
+                }
+            }
+        })
+    </script>
+</body>
+</html>
