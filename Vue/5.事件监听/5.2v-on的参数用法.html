@@ -9,12 +9,13 @@
 <body>
     <div id="app">
         <!--常规写法-->
-        <button @:click='log()'>按钮1</button>
+        <button @click='btn1Log()'>按钮1</button>
         <!--当事件监听函数没有调用参数时,可以省略括号-->
-        <button @:click='log'>按钮2</button>
+        <button @click='btn2Log'>按钮2</button>
         <!--在事件定义中,方法省略括号,但是方法本身是需要传入一个参数的,这时Vue会默认传入一个浏览器生成的event事件对象  -->
-        <button @:click='log(1234)'>按钮3</button>
-        <button @:click='log()'>按钮4</button>
+        <button @click='btn3Log'>按钮3</button>
+        <!--当需要同时传入其他参数同时获取event时,event写法为$event-->
+        <button @click='btn4Log(message,$event)'>按钮4</button>
     </div>
     <script src="./js/vue.js"></script>
     <script type="text/javascript">
@@ -24,9 +25,18 @@
                 message: "Welcome"
             },
             methods:{
-                log(name){
-                    console.log("abc"+123)
-                }
+                btn1Log(){
+                    console.log("btn1Log")
+                },
+                btn2Log(){
+                    console.log("btn2Log")
+                },
+                btn3Log(event){
+                    console.log(event)
+                },
+                btn4Log(abc,event){
+                    console.log(abc,event)
+                },
             }
         })
     </script>

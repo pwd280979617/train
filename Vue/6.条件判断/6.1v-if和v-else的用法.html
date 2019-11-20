@@ -8,7 +8,9 @@
 </head>
 <body>
     <div id="app">
-        {{message}}
+        <h1>{{message}}</h1>
+        <h1 v-if="login">{{user}}</h1>
+        <h1 v-else="login">{{stranger}}</h1>
     </div>
     <script src="./js/vue.js"></script>
     <script type="text/javascript">
@@ -16,7 +18,10 @@
             el: "#app",
             data: {
                 message: "Welcome",
-            },
+                user: "马云",
+                stranger: "stranger",
+                login: true,
+            }
         })
     </script>
 </body>

@@ -8,7 +8,9 @@
 </head>
 <body>
     <div id="app">
-        {{message}}
+        <div  v-if="login">用户名:<input type="text"></div>
+        <div  v-else="login">邮箱:<input type="email"></div>
+        <button @click="getLogin()">切换登录方式</button>
     </div>
     <script src="./js/vue.js"></script>
     <script type="text/javascript">
@@ -16,6 +18,12 @@
             el: "#app",
             data: {
                 message: "Welcome",
+                login: true,
+            },
+            methods: {
+                getLogin(){
+                    this.login = !this.login;
+                }
             },
         })
     </script>

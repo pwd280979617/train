@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!--.stop修饰符的用法-->
+        <!--当需要阻止事件冒泡时,只需要在需要阻止事件冒泡的事件上加上.stop修饰符-->
+        <div @click="stop1()">
+            aaaaa<button @click.stop="stop2()">按钮</button>
+        </div>
+        <!--.prevent修饰符的用法-->
+        <!--当需要阻止默认事件时,需要在新绑定事件上加上.prevent修饰符-->
+        <form action="baidu">
+            <input type="submit" value="abc" @click.prevent="prevent()">
+        </form>
+        <!--{.keyCode|keAlias}修饰符的用法-->
+        <!--当需要在输入特定键时触发的,需要在绑定事件(一般都是keydown或keyup)上加上..keyCode|keAlias修饰符-->
+        <input type="text" @keyup.enter="enter()">
+        <!--.once修饰符的用法-->
+        <button @click.once="once">按钮</button>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script type="text/javascript">
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "Welcome"
+            },
+            methods:{
+                stop1(){
+                    console.log("stop1")
+                },
+                stop2(){
+                    console.log("stop2")
+                },
+                prevent(){
+                    console.log("prevent")
+                },
+                enter(){
+                    console.log("enter")
+                },
+                once(){
+                    console.log("once")
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -8,7 +8,10 @@
 </head>
 <body>
     <div id="app">
-        {{message}}
+        <!--在使用v-if时,当变量为false,会直接删除当前元素的dom,变更换true时,则会重新创建-->
+        <h1 v-if="display" id="vIf">{{message}}</h1>
+        <!--在使用v-show时,当变量为false,只会在元素中添加一个none的显示样式-->
+        <h1 v-show="display" id="vShow">{{message}}</h1>
     </div>
     <script src="./js/vue.js"></script>
     <script type="text/javascript">
@@ -16,6 +19,7 @@
             el: "#app",
             data: {
                 message: "Welcome",
+                display: true,
             },
         })
     </script>
