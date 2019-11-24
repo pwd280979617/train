@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!--通过v-for可以循环遍历数组中的内容,语法:v-for="item in names"-->
+        <ul>
+            <li v-for="item in names">{{item}}</li>
+        </ul>
+        <!--使用v-for还可以获取数组的下标,语法:v-for="(item,index) in names"-->
+        <ul>
+            <li v-for="(item,index) in names">{{index+1}}.{{item}}</li>
+        </ul>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script type="text/javascript">
+        const app = new Vue({
+            el: "#app",
+            data: {
+                names: ['Tom','Bob','Lily'],
+            },
+        })
+    </script>
+</body>
+</html>

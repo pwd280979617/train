@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!--当使用v-for时,只遍历一个数据时,获取的是属性值-->
+        <ul>
+            <li v-for="item in god">{{item}}</li>
+        </ul>
+        <!--当按使用v-for时,需要同时获取属性和属性值时,需要床两个参数,前面一个是属性值后面一个是属性名-->
+        <ul>
+            <li v-for="(item,attrs) in god">{{attrs}}:{{item}}</li>
+        </ul>
+        <!--需要获取index只需要传入第三个参数,语法:v-for="(item,attrs,index) in god"-->
+        <ul>
+            <li v-for="(item,attrs,index) in god">{{index+1}}.{{attrs}}:{{item}}</li>
+        </ul>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script type="text/javascript">
+        const app = new Vue({
+            el: "#app",
+            data: {
+                god: {
+                    name: "孙悟空",
+                    age: "600",
+                    sex: "male"
+                }
+            },
+        })
+    </script>
+</body>
+</html>
