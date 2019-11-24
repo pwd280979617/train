@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <select name="car" v-model="car">
+            <option value="奥迪">奥迪</option>
+            <option value="奔驰">奔驰</option>
+            <option value="宝马">宝马</option>
+        </select>
+        <h1>您选择的品牌是:{{car}}</h1>
+
+        <select name="cars" multiple v-model="cars">
+            <option value="奥迪">奥迪</option>
+            <option value="奔驰">奔驰</option>
+            <option value="宝马">宝马</option>
+        </select>
+        <h1>您选择的品牌是:{{cars}}</h1>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script type="text/javascript">
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "Welcome",
+                car: "奥迪",
+                cars: [],
+            },
+        })
+    </script>
+</body>
+</html>
