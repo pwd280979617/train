@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{message}}
+    </div>
+    <script src="./js/vue.js"></script>
+    <script type="text/javascript">
+        const nums = [10,150,30,80,110,170,40]
+        //需求1.将nums中小于100得筛选出来
+            //初级写法:使用for循环遍历筛选
+            // let newNums = [];
+                //基础写法:
+                    // function getNew(){
+                    //     for(let i = 0;i < nums.length;i++ ){
+                    //         if(nums[i] < 100){
+                    //             newNums.push(nums[i])
+                    //         }
+                    //     }
+                    // }
+                //精简写法:
+                    // function getNew(){
+                    //     for(let n of nums){
+                    //         if(n < 100){
+                    //             newNums.push(n)
+                    //         }
+                    //     }
+                    // }
+            // getNew()
+            // console.log(newNums)
+            //高级写法:使用filter函数
+                // let newNums = nums.filter(function(n){
+                //     return n < 100
+                // })
+                // console.log(newNums)
+        //需求2:将得到的newNums数组全部*2
+            //初级写法:使用for循环遍历
+                // let new2Nums = [];
+                // for(let n of newNums){
+                //     new2Nums.push(n*2)
+                // }
+                // console.log(new2Nums)
+            //高级写法:使用map函数
+                // let new2Nums = newNums.map(function(n){
+                //     return n*2
+                // })
+                // console.log(new2Nums)
+        //需求3将得到的new2Nums数组求和
+            //初级写法:使用for循环遍历求和
+                // let total = 0;
+                // for(let n of new2Nums){
+                //     total += n
+                // }
+                // console.log(total)
+            //高级写法:使用reduce函数
+                // let total = new2Nums.reduce(function(pre,n){
+                //     return pre += n
+                // },0)
+                // console.log(total)
+            //需求1,2,3终极写法:
+                let total = nums.filter(n => n < 100).map(n => n*2).reduce((pre,n) => pre+=n)
+                console.log(total)
+
+
+    </script>
+</body>
+</html>
