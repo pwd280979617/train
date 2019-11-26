@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <cpn1></cpn1>
+    </div>
+    <!--1.通过script标签分离模版-->
+    <script type="text/x-template" id="cpnC">
+        <div>
+            <h2>我是分离的模版1</h2>
+            <p>我是分离的模版内容</p>
+        </div>   
+    </script>
+
+    <!--2.通过template标签分离模版-->
+    <template id="cpnA">
+        <div>
+            <h2>我是分离的模版2</h2>
+            <p>我是分离的模版内容</p>
+        </div>
+    </template>
+    <script src="./js/vue.js"></script>
+    <script type="text/javascript">
+        Vue.component('cpn1',{
+            template:'#cpnA'
+        })
+        
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "Welcome",
+            },
+        })
+    </script>
+</body>
+</html>
