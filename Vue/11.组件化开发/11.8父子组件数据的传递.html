@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <cpn1 :messagecpn='message' :bookscpn='books'></cpn1>
+    </div>
+    <template id="cpnC">
+        <div>
+            <h2>{{messagecpn}}</h2>
+            <ul>
+                <li v-for='item in bookscpn'>{{item}}</li>
+            </ul>
+        </div>
+    </template>
+    <script src="./js/vue.js"></script>
+    <script type="text/javascript">
+        const cpn = {
+            template: '#cpnC',
+            //1.在props中以数组方式传递数据
+            //props: ['messagecpn','bookscpn'],
+
+            //2.再prop中以对象方式传递数据,可以定义类型
+            // props: {
+            //     messagecpn: String,
+            //     bookscpn: Array,
+            // }
+
+            //3.还可以对传递的数据定义其他属性
+            props: {
+                messagecpn: {
+                    type: String,
+                    required: true,
+                    default: "abc"
+                },
+                bookscpn: {
+                    type: Array,
+                    required:true,      //required定义是否是必要的
+                    default(){
+                        return []
+                    },               //default需要定义一个空数组或对象时,需要以构造函数的方式return
+                }
+            }
+        }
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "Welcome",
+                books: ['终生成长','刻意练习','认知天性']
+            },
+            components:{
+                'cpn1': cpn
+            }
+        })
+    </script>
+</body>
+</html>

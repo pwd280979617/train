@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <cpn :getid='cpnId'></cpn>
+    </div>
+    <template id="cpnC">
+        <div>
+            <button v-for="item in classcs" @click='postId(item)'>{{item.name}}</button>
+        </div>
+    </template>
+    <script src="./js/vue.js"></script>
+    <script type="text/javascript">
+        const cpn = {
+            template: '#cpnC',
+            data() {
+                return {
+                   classcs: [
+                       {id:1,name:"手机数码"},
+                       {id:2,name:"家具用品"},
+                       {id:3,name:"生活家电"}
+                    ]
+                }
+            },
+            methods: {
+                postId(item){
+                    this.$emit('getid',item)
+                }
+            },
+        }
+        
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "Welcome",
+            },
+            components: {
+                cpn: cpn ,
+            },
+            methods: {
+                cpnId(item){
+                    console.log(item)
+                }
+            },
+        })
+    </script>
+</body>
+</html>

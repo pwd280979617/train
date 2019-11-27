@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <cpn1></cpn1>
+        <cpn1></cpn1>
+        <cpn1></cpn1>
+        <cpn1></cpn1>
+    </div>
+    <template id="cpnC">
+        <div>
+            <h2>{{title}}{{count}}</h2>
+            <button @click='sub()'>-</button>
+            <button @click='add()'>+</button>
+        </div>
+    </template>
+    <script src="./js/vue.js"></script>
+    <script type="text/javascript">
+        Vue.component('cpn1',{
+            template: '#cpnC',
+            data(){                        //只有data是函数是,才能保证每次调用组件时该组件的数据与其他同样电泳该组件的数据相互独立
+                return {
+                    title: '总数量是:',
+                    count: 0
+                }
+            },
+            methods:{
+                    add(){
+                        return this.count++
+                    },
+                    sub(){
+                        return this.count--
+                    }
+            }
+        })
+        
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "Welcome",
+            },
+        })
+    </script>
+</body>
+</html>
