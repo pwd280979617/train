@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <cpn @sub1='getcounter' @add1='getcounter'></cpn>
+        <h2>计数:{{number}}</h2>
+    </div>
+    <template id="counterBtn">
+        <div>
+            <button @click='sub'>-</button>
+            <button @click='add'>+</button>
+        </div>
+    </template>
+    <script src="./js/vue.js"></script>
+    <script type="text/javascript">
+        const cpn = {
+            template: '#counterBtn',
+            data(){
+                return {
+                    num: 0,
+                }
+            },
+            methods: {
+                sub(){
+                    this.num--
+                    this.$emit('sub1',this.num)
+                },
+                add(){
+                    this.num++
+                    this.$emit('add1',this.num)
+                },
+            },
+        }
+        
+        const app = new Vue({
+            el: "#app",
+            data: {
+                number: 0,
+            },
+            components:{
+                'cpn': cpn,
+            },
+            methods: {
+                getcounter(num){
+                    this.number = num
+                    console.log("======"+num)
+                }
+            },
+        })
+    </script>
+</body>
+</html>
