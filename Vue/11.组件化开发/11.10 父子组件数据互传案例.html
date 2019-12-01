@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <cpn :number1='num1' :number2='num2' @getvalue='getnum'></cpn>
+    </div>
+    <template id="cpn1">
+        <div>
+            <h2>props:{{number1}}</h2>
+            <h2>data:{{dnumber1}}</h2>
+            <input type="text"  :value='dnumber1' @input='emit1($event)'>
+        </div>
+    </template>
+    <script src="./js/vue.js"></script>
+    <script type="text/javascript">
+        const cpn = {
+            template: '#cpn1',
+            props: {
+                number1: Number,
+                number2: Number
+            },
+            data() {
+                return {
+                    dnumber1: this.number1,
+                    dnumber2: this.number2
+                }
+            },
+            methods: {
+                emit1($event){
+                    this.dnumber1 = parseInt($event.target.value)
+                    this.$emit('getvalue',this.dnumber1)
+                },
+            },
+        }
+        
+        const app = new Vue({
+            el: "#app",
+            data: {
+                num1: 1,
+                num2: 0,
+            },
+            components: {
+                'cpn': cpn,
+            },
+            methods: {
+                getnum(dnumber1){
+                    this.num1 = dnumber1
+                }
+            },
+        })
+    </script>
+</body>
+</html>

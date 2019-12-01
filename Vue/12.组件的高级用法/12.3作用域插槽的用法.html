@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!--当使用组件时,需要使用特定方式显示组件模版中的内容,就需要用到作用域插槽的概念-->
+        <cpn></cpn>
+        <!--3.在需要更改的组件中添加一个template标签-->
+        <cpn>
+            <!--4.在template标签中创建一个slot-scope属性,属性值自定义,接收模版中的自定义属性值-->
+            <template slot-scope='slot'>
+                <ul>
+                    <li v-for="item in slot.data">{{item}}-</li>
+                </ul>
+            </template>
+        </cpn>
+        <cpn></cpn>
+    </div>
+    <template id="cpn">
+        <div>
+            <ul>
+                <li v-for="item in books">{{item}}</li>
+            </ul>
+            <!--1.需要添加一个插槽-->
+            <!--2.再插槽中绑定一个自定义属性,并将组件数据赋值给该属性-->
+            <slot :data='books'></slot>
+           
+        </div>
+    </template>
+    <script src="./js/vue.js"></script>
+    <script type="text/javascript">
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "Welcome",
+            },
+            components: {
+                cpn: {
+                    template: '#cpn',
+                    data(){
+                        return{
+                            books:['《终身成长》','《刻意练习》','《认知天性》']
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

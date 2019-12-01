@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!--在组件模版中有多个插槽时,需要正对特定插槽内容进行修改,需要对插槽进行命名,给slot添加name属性,并在组件中使用slot='name'进行指定插槽的修改-->
+        <cpn>
+            <button slot='left'>左边</button>
+        </cpn>
+    </div>
+    <template id="cpn">
+        <div>
+            <slot name='left'>左边</slot>
+            <slot name='center'>中间</slot>
+            <slot name='right'>右边</slot>
+        </div>
+    </template>
+    <script src="./js/vue.js"></script>
+    <script type="text/javascript">
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "Welcome",
+            },
+            components: {
+                cpn: {
+                    template: '#cpn',
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>
