@@ -8,8 +8,8 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '',
-      redirect: home
+      path: '/',
+      redirect: 'home'
     },
     {
       path: '/home',
@@ -19,5 +19,6 @@ export default new Router({
       path: '/about',
       component: about
     }
-  ]
+  ],
+  mode: 'history'
 })
